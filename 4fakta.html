@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Blind | Fakta Buta Warna</title>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" href="boots/css/bootstrap.css">
+        <link rel="icon" href="img\ColorBlindLogo.png">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+            @media screen and (max-width: 1024px) {
+                body,
+                main{
+                    width: 100%;
+                    max-width: 1024px;
+                    height: 100%;
+                    max-height: 100%;
+                    padding: 0;
+                }
+            }
+            body {
+                width: 100%;
+                position: absolute;
+                display: block;
+                margin:0 auto;
+                left: 0px;
+                top: 62px;
+                font-family: 'Playfair Display','serif';
+            }
+            #header {
+                display: block;
+                position: fixed;
+                width: 100%;
+                margin: 0 auto;
+                top: -20px;
+                background-color: #AD4F4F;
+                border: 1px solid #AD4F4F;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
+            img {
+                cursor: pointer;
+                height: 72px;
+                float: left;
+                width: 40%;
+                margin-top: 40px; 
+                margin-bottom: 30px;
+                margin-left: 100px;
+            }
+            #nav {
+                display: block;
+                float: left;
+                width: 50%;
+                margin-top: 60px;
+                padding-left: 370px;
+                font-size: 20px;
+                color: white;
+            }
+            ul#navList {
+                list-style-position: inside;
+            }
+            li.item {
+                cursor: pointer;
+                list-style:none; 
+                padding:5px;
+                float:left;
+                padding: 3px 5px;
+                border-radius: 10px;
+            }
+            li.item:hover {
+                background-color: #913B3B;
+            }
+            #article {
+                display: block;
+                margin-top: 20px;
+                width: 100%;
+                height: 2000px;
+            }
+            #article img {
+                float: left;
+                display: block;
+                width: 100%;
+                width: 859px;
+                height: 466px;
+                object-fit: cover;
+                cursor: unset;
+                margin-left: 200px;
+                margin-right: 200px;
+            }
+            #fakta {
+                float: left;
+                display: block;
+                margin-left: 200px;
+                margin-right: 200px;
+            }
+            #judul {
+                text-align: center;
+                font-size: 30px;
+                font-weight:500;
+            }
+            #foot {
+                display: block;
+                width: 100%;
+                height: 200px;
+                background-color: #AD4F4F;
+                color: white;
+            }
+            #colorblind {
+                width: 35%;
+                float: left;
+            }
+            #about {
+                width: 65%;
+                float: right;
+                margin-top: 20px;
+            }
+            #ab1 {
+                cursor: pointer;
+                width: 50%;
+                float: left;
+                padding-right: 250px;
+            }
+            #ab2 {
+                cursor: unset;
+                width: 50%;
+                float: right;
+            }
+            #copyright {
+                height: 40px;
+                text-align: center;
+                background-color: #AD4F4F;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <img src="img\COLOR BLIND.png" onclick="window.location.href='index.html'">
+            <div id="nav"></div>
+        </div>
+        <div id="article">
+            <img src="img/Mata.png">
+            <div id="fakta">
+                <div id="judul"></div>
+                <div id="kpembuka"></div>
+                <div id="sb1"></div>
+                <div id="isisb1"></div>
+                <div id="sb2"></div>
+                <div id="isisb2"></div>
+                <div id="sb3"></div>
+                <div id="isisb3"></div>
+                <div id="sb4"></div>
+                <div id="isisb4"></div>
+                <div id="sb5"></div>
+                <div id="isisb5"></div>
+                <div id="kpenutup"></div>
+                <div id="sumber"></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="foot">
+                <div id="colorblind"></div>
+                <div id="about">
+                    <div id="ab1"></div>
+                    <div id="ab2"></div>
+                </div>
+            </div>
+            <div id="copyright"></div>
+        </div>
+
+        <script type="text/javascript">
+            (function(){
+                var ul = document.createElement("ul");
+                ul.setAttribute("id","navList");
+
+                var x, xy;
+                navBar = ["Home","About"];
+
+                document.getElementById("nav").appendChild(ul);
+                navBar.forEach(renderNavBar);
+
+                function renderNavBar(element, index, arr) {
+                    var li = document.createElement("li");
+                    li.setAttribute("class","item")
+                    
+                    ul.appendChild(li);
+
+                    x = document.createTextNode(element);
+
+                    li.innerHTML = li.innerHTML + element;
+                    li.addEventListener("click",function show() {
+                        if (li.innerHTML == "Home") {
+                            window.location.href='index.html';
+                        }
+                        else if (li.innerHTML == "About") {
+                            window.location.href='2about.html';
+                        }
+                    });
+                }
+            })();
+        </script>
+        <script type="text/babel">
+            let judul = (
+                <p>Deretan Fakta Tentang Buta Warna yang Wajib Kamu Ketahui!</p>
+            );
+            ReactDOM.render(judul, document.getElementById("judul"));
+        </script>
+        <script type="text/babel">
+            let kpembuka = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Masalah kesehatan mata memiliki berbagai bentuk, salah satunya adalah buta warna yang beberapa 
+                    dari kita mengalaminya. Buta warna merupaka kelainan pada mata yang membuat orang yang mengalami 
+                    gangguan ini sulit atau enggak bisa membedakan warna seperti orang normal.
+                    berikut ini fakta-fakta tentang buta warna yang mungkin belum anda ketahui.
+                </p>
+            );
+            ReactDOM.render(kpembuka, document.getElementById("kpembuka"));
+        </script>
+        <script type="text/babel">
+            let sb1 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Bawaan Genetik dan Luar
+                </p>
+            );
+            ReactDOM.render(sb1, document.getElementById("sb1"));
+        </script>
+        <script type="text/babel">
+            let isisb1 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Buta warna memang bukan sesuatu yang berbahaya untuk pengidapnya.
+                    Masalah ini bisa disebabkan oleh dua hal yaitu diturunkan dari orang tua pengidap atau kelainan genetik 
+                    yang di mana si pengidap akan merasakan kelainan ini semenjak lahir, kemudian buta warna akuisita yang 
+                    disebabkan oleh beberapa faktor luar yang disebabkan oleh penyakit seperti glaucoma, diabetes, 
+                    multiple sclerosis atau masalah lainnya yang bisa menyerang kesehatan mata.
+                </p>
+            );
+            ReactDOM.render(isisb1, document.getElementById("isisb1"));
+        </script>
+        <script type="text/babel">
+            let sb2 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Trauma dari Luar
+                </p>
+            );
+            ReactDOM.render(sb2, document.getElementById("sb2"));
+        </script>
+        <script type="text/babel">
+            let isisb2 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Kemudian, buta warna juga bisa disebabkan oleh trauma seperti mengalami kecelakaan atau pada area mata 
+                    pernah mengalami benturan atau sebuah pukulan yang membuat penderita mengalami kelainan ini. 
+                    Hal ini diakibatkan karena adanya saraf mata yang putus ketika kejadian tersebut terjadi, 
+                    saraf mata sendiri merupaka saraf yang cukup sensitif dan juga rentan, karena jika sekali terputus maka akan sulit untuk disembukan atau diselamatkan lagi.
+                </p>
+            );
+            ReactDOM.render(isisb2, document.getElementById("isisb2"));
+        </script>
+        <script type="text/babel">
+            let sb3 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Buta Warna Genetik Tak Bisa Sembuh
+                </p>
+            );
+            ReactDOM.render(sb3, document.getElementById("sb3"));
+        </script>
+        <script type="text/babel">
+            let isisb3 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Untuk penderita warna genetik disebabkan oleh adanya mutasi gen. Jika seseorang terkena masalah ini maka kelainan ini enggak bisa disembuhkan, 
+                    hanya bisa mendeteksi gangguan buta warna apa yang dialami oleh penderita. 
+                </p>
+            );
+            ReactDOM.render(isisb3, document.getElementById("isisb3"));
+        </script>
+        <script type="text/babel">
+            let sb4 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Tes Ishihara
+                </p>
+            );
+            ReactDOM.render(sb4, document.getElementById("sb4"));
+        </script>
+        <script type="text/babel">
+            let isisb4 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Untuk mengetahui apakah kamu mengalami buta warna atau enggak 
+                    kamu bisa melakukan pemeriksaan di puskesmas terdekat atau mendatangi dokter spesialis mata dan menjalani tes ishihara. 
+                    Hal ini harus dilakukan karena beberapa orang enggak sadar kalau mereka enggak bisa membedakan sebuah warna. Mereka akan merasakan kehidupan normal seperti orang lainnya, 
+                    mengingat mereka tetap bisa melihat warna, namun enggak bisa mengenalo warna beda yang serupa.
+                </p>
+            );
+            ReactDOM.render(isisb4, document.getElementById("isisb4"));
+        </script>
+        <script type="text/babel">
+            let sb5 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Manfaat Wortel
+                </p>
+            );
+            ReactDOM.render(sb5, document.getElementById("sb5"));
+        </script>
+        <script type="text/babel">
+            let isisb5 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Banyak yang mengatakan wortel bisa digunakan sebagai obat untuk menyembuhkan atau hanya sekedar mengurangi kondisi penderita buta warna, namun ternyata salah, 
+                    karena wortel hanya bisa bermanfaat untuk menyehatkan mata karena memiliki kandungan vitamin A pada wortel.
+                </p>
+            );
+            ReactDOM.render(isisb5, document.getElementById("isisb5"));
+        </script>
+        <script type="text/babel">
+            let kpenutup = (
+                <p style={{fontSize:"18px",textAlign:"justify",marginTop:"50px"}}>
+                    Hingga kini, masih belum ditemukan solusi yang baik dan cocok untuk para penderita buta warna. 
+                    Namun, kamu bisa mengetahui masalah buta warna apa yang kamu hadapi agar penanganannya bisa lebih baik dan mengurangi risiko masalah lain yang muncul.
+                </p>
+            );
+            ReactDOM.render(kpenutup, document.getElementById("kpenutup"));
+        </script>
+        <script type="text/babel">
+            let sumber = (
+                <p style={{fontSize:"16px",textAlign:"left",marginTop:"30px"}}>
+                    sumber : herstory.co.id
+                </p>
+            );
+            ReactDOM.render(sumber, document.getElementById("sumber"));
+        </script>
+        <script type="text/babel">
+            let cb = (
+                <p style={{fontSize:"64px",marginLeft:"50px"}}>Color Blind</p>
+            );
+            ReactDOM.render(cb, document.getElementById("colorblind"));
+        </script>
+        <script type="text/babel">
+            let ab1 = (
+                <div>
+                    <h3>About Us</h3>
+                    <p style={{fontSize:"20px"}}>
+                    Our Vision
+                    Our Team
+                    Our Contact        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab1, document.getElementById("ab1"));
+            document.getElementById("ab1").addEventListener("click", function() {
+                window.location.href='2about.html';
+            });
+        </script>
+        <script type="text/babel">
+            let ab2 = (
+                <div>
+                    <h3>Address</h3>
+                    <p style={{fontSize:"20px"}}>
+                        Jl. Ir H. Juanda No.95, Cempaka Putih, Kec. Ciputat Timur, Kota Tangerang Selatan, Banten 15412        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab2, document.getElementById("ab2"));
+        </script>
+        <script type="text/babel">
+            let cpr = (
+                <p style={{fontSize:"14px"}}>
+                    Terms Privacy Policy Legal ©2021 color blind        
+                </p>   
+            );
+            ReactDOM.render(cpr, document.getElementById("copyright"));
+        </script>
+        
+
+        <script src="boots/js/jquery.js"></script> 
+        <script src="boots/js/popper.js"></script> 
+        <script src="boots/js/bootstrap.js"></script>
+    </body>
+</html>

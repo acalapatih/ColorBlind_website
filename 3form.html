@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Blind | Form</title>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" href="boots/css/bootstrap.css">
+        <link rel="icon" href="img\ColorBlindLogo.png">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+            @media screen and (max-width: 1024px) {
+                body,
+                main{
+                    width: 100%;
+                    max-width: 1024px;
+                    height: 100%;
+                    max-height: 100%;
+                    padding: 0;
+                }
+            }
+            body {
+                width: 100%;
+                position: absolute;
+                display: block;
+                margin:0 auto;
+                left: 0px;
+                top: 62px;
+                font-family: 'Playfair Display','serif';
+            }
+            #header {
+                display: block;
+                position: fixed;
+                width: 100%;
+                margin: 0 auto;
+                top: -20px;
+                background-color: #AD4F4F;
+                border: 1px solid #AD4F4F;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
+            img {
+                cursor: unset;
+                height: 72px;
+                width: 40%;
+                margin-top: 40px; 
+                margin-bottom: 30px;
+                margin-left: 100px;
+            }
+            #article {
+                display: block;
+                margin-top: 100px;
+                width: 100%;
+                color: black;
+                height: 1000px;
+            }
+            #txtNama {
+                width: 300px;
+                text-align: center;
+                border: black solid;
+                border-radius: 7px;
+            }
+            #combo {
+                text-align: center;
+                border: black solid;
+                border-radius: 7px;
+            }
+            #TL {
+                text-align: center;
+                border: black solid;
+                border-radius: 7px;
+            }
+            #Submit {
+                margin-top: 30px;
+                background-Color:greenyellow;
+                color: black;
+                font-Size:20px;
+                font-Family:'Playfair Display';
+                border-Radius:10px;
+                padding: 3px 30px 3px 30px;
+            }
+            #Submit:hover {
+                background-Color: yellow;
+            }
+            #Kembali {
+                margin-top: 30px;
+                background-Color:greenyellow;
+                color: black;
+                font-Size:20px;
+                font-Family:'Playfair Display';
+                border-Radius:10px;
+                padding: 3px 30px 3px 30px;
+            }
+            #Kembali:hover {
+                background-Color: yellow;
+            }
+            #judul {
+                margin-left: 200px;
+                font-size: 30px;
+                font-weight:500;
+            }
+            #question {
+                text-align: center;
+                font-size: 20px;
+                font-weight: 400;
+            }
+            #ishihara {
+                float: left;
+                margin-left: 200px;
+                margin-right: 200px;
+                padding: 5px;
+                border: 5px #AD4F4F solid;
+            }
+            #ishihara img {
+                width: 60%;
+                float: left;
+                height: 400px;
+                width: 400px;
+                object-fit: cover;
+                cursor: unset;
+            }
+            #ishihara #jwb {
+                display: block;
+                width: 40%;
+                float: left;
+                padding-top: 150px;
+                padding-bottom: 150px;
+                cursor: unset;
+            }
+            #ishihara input {
+                margin-left: 70px;
+                margin-top: 30px;
+                border-radius: 10px;
+                font-size: 40px;
+                background-color: #F6C993;
+            }
+            #ishihara input:hover {
+                background-color: #FCE7CE;
+            }
+            #jumlah {
+                background-color: unset;
+                text-align: center;
+                margin-left: 43%;
+                margin-left: 500px;
+                margin-right: 500px;
+                font-size: 20px;
+                font-weight: 400;
+            }
+            .submit {
+                margin-top: 30px;
+                margin-left: 550px;
+                margin-right: 550px;
+                background-Color:greenyellow;
+                color: black;
+                font-Size:20px;
+                font-Family:'Playfair Display';
+                border-Radius:10px;
+                padding: 3px 30px 3px 30px;
+            }
+            .submit:hover {
+                background-Color: yellow;
+            }
+            #judul1 {
+                text-align: center;
+                font-size: 30px;
+                font-weight: 400;
+            }
+            #dataUser {
+                margin-top: 50px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 400;
+            }
+            #JKUser {
+                margin-top: 20px;
+            }
+            #TLUser {
+                margin-top: 20px;
+            }
+            #hasil {
+                margin-top: 80px;
+                margin-left: 400px;
+                margin-right: 400px;
+                text-align: center;
+                font-size: 40px;
+                font-weight: 500;
+            }
+            #deskripsi {
+                margin-top: 80px;
+                margin-left: 200px;
+                margin-right: 200px;
+                text-align: justify;
+                font-size: 18px;
+                font-weight: 400;
+            }
+            #penutup {
+                margin-top: 80px;
+                text-align: center;
+                font-size: 30px;
+                font-weight: 500;
+            }
+            .teslagi {
+                margin-top: 30px;
+                background-Color:greenyellow;
+                color: black;
+                font-Size:20px;
+                font-Family:'Rubik';
+                border-Radius:10px;
+                padding: 3px 30px 3px 30px;
+            }
+            .teslagi:hover {
+                background-Color: yellow;
+            }
+            .home {
+                margin-top: 30px;
+                background-Color:greenyellow;
+                color: black;
+                font-Size:20px;
+                font-Family:'Rubik';
+                border-Radius:10px;
+                padding: 3px 30px 3px 30px;
+            }
+            .home:hover {
+                background-Color: yellow;
+            }
+            #copyright {
+                height: 40px;
+                text-align: center;
+                background-color: #AD4F4F;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <img src="img\COLOR BLIND.png">
+        </div>
+        <div id="article">
+            <div id="judul2"></div>
+            <center><div id="form">
+                <div id="lblNama"></div>
+                <input type="text" id="txtNama" name="nama" autocomplete="off">
+                <div id="lblJK" style="margin-top: 50px;"></div>
+                <div id="txtJK">
+                    <select name="combo" id="combo"></select>
+                </div>
+                <div id="lblTL" style="margin-top: 50px;"></div>
+                <div id="txtTL">
+                    <input type="date" id="TL" autocomplete="off" max="2015-12-30">
+                </div>
+                <div id="tekanSubmit" style="margin-top: 70px;"></div>
+                <button id="Submit" type="submit" value="Submit">Submit</button>
+            </div></center>
+            <center><button id="Kembali" type="submit" value="Kembali" onclick="window.location.href='index.html'">Kembali</button></center>
+
+            <div id="judul"></div>
+            <div id="question"></div>
+            <div id="ishihara" style="display: none;">
+                <img id="gb1" src="https://awsimages.detik.net.id/community/media/visual/2021/04/04/tes-buta-warna-6.png?w=700&q=80">
+                <div id="jwb">
+                    <input type="button" id="jw1" onclick="buttonValue1()" value="12">
+                    <input type="button" id="jw2" onclick="buttonValue2()" value="11">
+                    <input type="button" id="jw3" onclick="buttonValue3()" value="17">
+                    <input type="button" id="jw4" onclick="buttonValue4()" value="13">
+                </div>
+            </div>
+            <div id="jumlah"></div>
+            <div id="nilai"></div>
+            <div id="submit"></div>
+
+            <div id="judul1"></div>
+            <div id="dataUser">
+                <div id="namaUser"></div>
+                <div id="JKUser"></div>
+                <div id="TLUser"></div>
+            </div>
+            <div id="hasil"></div>
+            <div id="deskripsi"></div>
+            <div id="penutup"></div>
+            <center><div id="teslagi"></div></center>
+            <center><div id="home"></div></center>
+        </div>
+        <div id="footer">
+            <div id="copyright"></div>
+        </div>
+
+        <script type="text/babel">
+            let judul2 = (
+                <p style={{fontSize:"48px",textAlign:"center"}}>Masukkan Data Berikut</p>
+            );
+            ReactDOM.render(judul2, document.getElementById("judul2"));
+        </script>
+        <script type="text/babel">
+            let lblNama = (
+                <p style={{fontSize:"24px",textAlign:"center"}}>Nama Lengkap</p>
+            );
+            ReactDOM.render(lblNama, document.getElementById("lblNama"));
+        </script>
+        <script type="text/babel">
+            let lblJK = (
+                <p style={{fontSize:"24px",textAlign:"center"}}>Jenis Kelamin</p>
+            );
+            ReactDOM.render(lblJK, document.getElementById("lblJK"));
+        </script>
+        <script type="text/javascript">
+            var combo = document.getElementById("combo");
+            
+            var option = document.createElement("option");
+            option.text = "Pilih";
+            option.value = "Pilih";
+            combo.add(option);
+
+            var option = document.createElement("option");
+            option.text = "Laki-Laki";
+            option.value = "Laki-Laki";
+            combo.add(option);
+
+            var option = document.createElement("option");
+            option.text = "Perempuan";
+            option.value = "Perempuan";
+            combo.add(option);
+        </script>
+        <script type="text/babel">
+            let lblTL = (
+                <p style={{fontSize:"24px",textAlign:"center"}}>Tanggal Lahir</p>
+            );
+            ReactDOM.render(lblTL, document.getElementById("lblTL"));
+        </script>
+        <script type="text/babel">
+            let tekan = (
+                <p style={{fontSize:"20px",textAlign:"center"}}>Tekan "Submit" untuk memulai tes</p>
+            );
+            ReactDOM.render(tekan, document.getElementById("tekanSubmit"));
+        </script>
+        <script type="text/babel">
+            var disclaimer = "PERHATIAN!!!";
+            var judulDisclaimer = "\nBerikut adalah pengaturan kecerahan layar monitor yang dianjurkan untuk kesehatan mata.";
+            var isiDisclaimer = "\n\nKecerahan minimum LCD harus diatur ke pada posisi nilai 40, dan maksimun pada nilai 80. Atur pada rate 40-80 dan ambil posisi nilai yang paling pas dimata anda. Sehingga dengan demikian, kerusakan pada mata akan menjadi minimal. Semakin tinggi resolusi monitor, semakin gelap kecerahan yang harus disesuaikan.";
+        </script>
+        <script type="text/babel">
+            let judul = (
+                <p>Let's Do It!!!</p>
+            );
+        </script>
+        <script type="text/babel">
+            let quest = (
+                <p>Angka berapa yang kamu lihat...?</p>
+            );
+        </script>
+        <script>
+            var n = 1;
+            var jml = (
+                n+"/20"
+            );
+        </script>
+        <script>
+            function pictureChange() {
+                if (n == 2) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/cc086fa0-c5fe-490e-a006-ebf3fc646701.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  7";
+                    document.getElementById("jw2").value = "  4";
+                    document.getElementById("jw3").value = "  3";
+                    document.getElementById("jw4").value = "  5";
+                }
+                if (n == 3) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_04.jpg";
+                    document.getElementById("jw1").value = "  3";
+                    document.getElementById("jw2").value = "  2";
+                    document.getElementById("jw3").value = "  7";
+                    document.getElementById("jw4").value = "  5";
+                }
+                if (n == 4) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_01.jpg";
+                    document.getElementById("jw1").value = "44";
+                    document.getElementById("jw2").value = "74";
+                    document.getElementById("jw3").value = "14";
+                    document.getElementById("jw4").value = "47";
+                }
+                if (n == 5) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_02.jpg";
+                    document.getElementById("jw1").value = "  8";
+                    document.getElementById("jw2").value = "  3";
+                    document.getElementById("jw3").value = "  6";
+                    document.getElementById("jw4").value = "  5";
+                }
+                if (n == 6) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/9b98d179-0306-46d7-b8a7-46736b4b8929.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  3";
+                    document.getElementById("jw2").value = "  6";
+                    document.getElementById("jw3").value = "  5";
+                    document.getElementById("jw4").value = "  8";
+                }
+                if (n == 7) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_03.jpg";
+                    document.getElementById("jw1").value = "18";
+                    document.getElementById("jw2").value = "13";
+                    document.getElementById("jw3").value = "16";
+                    document.getElementById("jw4").value = "19";
+                }
+                if (n == 8) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/5204ce4a-9bf6-44c8-a20f-0a296e07c253.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  3";
+                    document.getElementById("jw2").value = "  6";
+                    document.getElementById("jw3").value = "  8";
+                    document.getElementById("jw4").value = "  2";
+                }
+                if (n == 9) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_06.jpg";
+                    document.getElementById("jw1").value = "4";
+                    document.getElementById("jw2").value = "7";
+                    document.getElementById("jw3").value = "2";
+                    document.getElementById("jw4").value = "1";
+                }
+                if (n == 10) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/4c0257f5-51ec-434d-bc11-5fcb7755e044.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  3";
+                    document.getElementById("jw2").value = "  2";
+                    document.getElementById("jw3").value = "  7";
+                    document.getElementById("jw4").value = "  5";
+                }
+                if (n == 11) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/049a61e2-397b-4220-a75f-ab8bdbfc1d21.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  0";
+                    document.getElementById("jw2").value = "  9";
+                    document.getElementById("jw3").value = "  8";
+                    document.getElementById("jw4").value = "  6";
+                }
+                if (n == 12) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/9e9618b3-542e-444b-baf1-c1fc5f5bd91a.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  8";
+                    document.getElementById("jw2").value = "  0";
+                    document.getElementById("jw3").value = "  6";
+                    document.getElementById("jw4").value = "  9";
+                }
+                if (n == 13) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_00.jpg";
+                    document.getElementById("jw1").value = "44";
+                    document.getElementById("jw2").value = "12";
+                    document.getElementById("jw3").value = "42";
+                    document.getElementById("jw4").value = "73";
+                }
+                if (n == 14) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/9aa75f84-55ce-4a00-bfb8-b3b98747b5f2.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  5";
+                    document.getElementById("jw2").value = "  3";
+                    document.getElementById("jw3").value = "  8";
+                    document.getElementById("jw4").value = "  9";
+                }
+                if (n == 15) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/7989fa9c-1b94-455c-a275-2be865d49bd9.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  1";
+                    document.getElementById("jw2").value = "  5";
+                    document.getElementById("jw3").value = "  3";
+                    document.getElementById("jw4").value = "  7";
+                }
+                if (n == 16) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_05.jpg";
+                    document.getElementById("jw1").value = "39";
+                    document.getElementById("jw2").value = "21";
+                    document.getElementById("jw3").value = "27";
+                    document.getElementById("jw4").value = "29";
+                }
+                if (n == 17) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_06.jpg";
+                    document.getElementById("jw1").value = "  7";
+                    document.getElementById("jw2").value = "  4";
+                    document.getElementById("jw3").value = "  1";
+                    document.getElementById("jw4").value = "  2";
+                }
+                if (n == 18) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_07.jpg";
+                    document.getElementById("jw1").value = "43";
+                    document.getElementById("jw2").value = "45";
+                    document.getElementById("jw3").value = "75";
+                    document.getElementById("jw4").value = "15";
+                }
+                if (n == 19) {
+                    document.getElementById("gb1").src ="https://www.colorlitelens.com/images/Ishihara/Ishihara_11.jpg";
+                    document.getElementById("jw1").value = "73";
+                    document.getElementById("jw2").value = "72";
+                    document.getElementById("jw3").value = "42";
+                    document.getElementById("jw4").value = "43";
+                }
+                if (n == 20) {
+                    document.getElementById("gb1").src ="https://akcdn.detik.net.id/community/media/visual/2018/03/04/9a4c90e7-96e8-4ca2-826b-e10776a8b031.png?w=700&q=80";
+                    document.getElementById("jw1").value = "  7";
+                    document.getElementById("jw2").value = "  3";
+                    document.getElementById("jw3").value = "11";
+                    document.getElementById("jw4").value = "  1";
+                }
+            }
+        </script>
+        <script>
+            var x = 0;
+            var jawaban;
+            localStorage.setItem("deuteranomali",0);
+            localStorage.setItem("protanomali",0);
+            localStorage.setItem("tritanopia",0);
+            function buttonValue1() {
+                jawaban = document.getElementById("jw1").value;
+                x++;
+            }
+            function buttonValue2() {
+                jawaban = document.getElementById("jw2").value;
+                x++;
+            }
+            function buttonValue3() {
+                jawaban = document.getElementById("jw3").value;
+                x++;
+            }
+            function buttonValue4() {
+                jawaban = document.getElementById("jw4").value;
+                x++;
+            }
+            function incrementValue()
+            {
+                n++;
+                var jml = (
+                    n+"/20"
+                );
+                ReactDOM.render(jml, document.getElementById("jumlah"));
+            }
+            function inputNilai() {
+                var newInt;
+                var deuteranomali;
+                var protanomali;
+                var tritanopia;
+                if (n == 2) {
+                    if (jawaban == 17) {
+                        localStorage.setItem("jumlahNilai",1);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        localStorage.setItem("jumlahNilai",0);
+                        protanomali = (+localStorage.getItem("protanomali")) + 1;
+                        localStorage.setItem("protanomali",protanomali);
+                    }
+                }
+                if (n == 3) {
+                    if (jawaban == 4) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }
+                }
+                if (n == 4) {
+                    if (jawaban == 2) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        protanomali = (+localStorage.getItem("protanomali")) + 1;
+                        localStorage.setItem("protanomali",protanomali);
+                    }
+                    // ReactDOM.render(submit, document.getElementById("submit"));
+                    // document.getElementById("jw1").disabled = true;
+                    // document.getElementById("jw2").disabled = true;
+                    // document.getElementById("jw3").disabled = true;
+                    // document.getElementById("jw4").disabled = true;
+                    // document.getElementById("jumlah").remove();   
+                    // window.alert("Deu : " + localStorage.getItem("deuteranomali") + ", Pro : " + localStorage.getItem("protanomali") + ", Tri : " + localStorage.getItem("tritanopia"));
+                }
+                if (n == 5) {
+                    if (jawaban == 74) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }
+                }
+                if (n == 6) {
+                    if (jawaban == 6) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }                    
+                }
+                if (n == 7) {
+                    if (jawaban == 5) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }                    
+                }
+                if (n == 8) {
+                    if (jawaban == 16) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }                    
+                }
+                if (n == 9) {
+                    if (jawaban == 3) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }                    
+                }
+                if (n == 10) {
+                    if (jawaban == 27) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        // window.alert(localStorage.getItem("jumlahNilai"));
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        protanomali = (+localStorage.getItem("protanomali")) + 1;
+                        localStorage.setItem("protanomali",protanomali);
+                    }                    
+                }
+                if (n == 11) {
+                    if (jawaban == 2) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }
+                }
+                if (n == 12) {
+                    if (jawaban == 9) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }                    
+                }
+                if (n == 13) {
+                    if (jawaban == 8) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }                    
+                }
+                if (n == 14) {
+                    if (jawaban == 12) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        protanomali = (+localStorage.getItem("protanomali")) + 1;
+                        localStorage.setItem("protanomali",protanomali);
+                    }                    
+                }
+                if (n == 15) {
+                    if (jawaban == 3) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }                    
+                }
+                if (n == 16) {
+                    if (jawaban == 7) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }                    
+                }
+                if (n == 17) {
+                    if (jawaban == 29) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        protanomali = (+localStorage.getItem("protanomali")) + 1;
+                        localStorage.setItem("protanomali",protanomali);
+                    }                    
+                }
+                if (n == 18) {
+                    if (jawaban == 7) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        protanomali = (+localStorage.getItem("protanomali")) + 1;
+                        localStorage.setItem("protanomali",protanomali);
+                    }                    
+                }
+                if (n == 19) {
+                    if (jawaban == 45) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        deuteranomali = (+localStorage.getItem("deuteranomali")) + 1;
+                        localStorage.setItem("deuteranomali",deuteranomali);
+                    }                    
+                }
+                if (n == 20) {
+                    if (jawaban == 42) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }                    
+                }
+                if (n == 21) {
+                    if (jawaban == 1) {
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 1;
+                        localStorage.setItem("jumlahNilai",newInt);
+                    }
+                    else {
+                        jumlahNilai = 0;
+                        newInt = (+localStorage.getItem("jumlahNilai")) + 0;
+                        localStorage.setItem("jumlahNilai",newInt);
+                        tritanopia = (+localStorage.getItem("tritanopia")) + 1;
+                        localStorage.setItem("tritanopia",tritanopia);
+                    }
+                    ReactDOM.render(submit, document.getElementById("submit"));
+                    document.getElementById("jw1").disabled = true;
+                    document.getElementById("jw2").disabled = true;
+                    document.getElementById("jw3").disabled = true;
+                    document.getElementById("jw4").disabled = true;
+                    document.getElementById("jumlah").remove();   
+                }
+            }
+        </script>
+        <script type="text/babel">
+            document.getElementById("jwb").addEventListener("click", function show() {
+                incrementValue();
+                pictureChange();
+                inputNilai();
+            });
+        </script>
+        <script type="text/babel">
+            var submit = (
+                <a>
+                    <button className="submit">
+                        Lihat Hasil
+                    </button>
+                </a>
+            );
+        </script>
+        <script type="text/babel">
+            let judul1 = (
+                <p>Hasil Tes Anda Adalah : </p>
+            );
+        </script>
+        <script type="text/babel">
+            var deskripsi1 = (
+                <p>
+                    Selamat mata anda normal dan tidak memiliki gejala buta warna apapun. Jaga terus kesehatan mata anda dengan cara banyak asupan vitamin A.
+                    Jaga kebiasaan anda dengan tidak terlalu lama menatap layar elektronik, dan lakukan olahraga otot mata secara rutin agar kesehatan mata anda terjaga.
+                </p>
+            );
+            var deskripsi2 = (
+                <p>
+                    Deuteranomali adalah jenis buta warna merah-hijau paling umum dimana penderita punya kencenderungan melihat warna hijau seperti merah.
+                    Di KBBI, deuteranomali di artikan sebagai buta warna yang ditandai dengan ketidakmampuan untuk membedakan warna hijau, merah, kuning dan coklat.
+                    Keadaan ini disebabkan oleh sel kerucut hijau tidak berfungsi dengan baik dan terlalu sensitif terhadap warna merah.
+                    Dapat juga menimbulkan kesulitan membedakan warna antara warna ungu dan biru atau merah muda dan abu-abu.
+                    Hanya saja, jenis buta warna satu ini sangat ringan dan biasanya tidak menghalangi aktivitas normal lainnya.
+                </p>
+            );
+            var deskripsi3 = (
+                <p>
+                    Protanomali adalah keadaan dimana seseorang punya kencenderungan melihat warna merah seperti warna hijau. Atau, dalam beberapa kasus, penderitanya melihat kalau warna merah tersebut tidak terlalu cerah.
+                    Sama seperti deuteranomali, jenis buta warna satu ini tidak menghalangi kegiataan sehari-hari dan cenderung ringan.
+                    Sekalipun ringan, jika berada dalam keadaan tertentu seperti mengemudi dibawah sinar matahari, berkendara saat hujan dan berkabut, akan sulit melihat rambu-rambu lalu lintas.
+                    Misalnya, sulit melihat lampu lalu lintas merah yang berkedip termasuk yang warna hijau dan rambu-rambu lainnya.
+                    Inilah yang jadi alasan mengapa saat buat SIM, ada tes pengenalan warna pada rambu-rambu lalu lintas.
+                </p>
+            );
+            var deskripsi4 = (
+                <p>
+                    Tritanopia adalah keadaan dimana seseorang tidak bisa membedakan antara warna biru dan hijau, ungu dan merah.
+                    Termasuk juga warna kuning dan merah muda. Penderitanya juga punya kencenderungan melihat warna-warna diatas kurang cerah.
+                </p>
+            );
+            var deskripsi5 = (
+                <p>
+                    Buta warna parsial merupakan jenis buta warna yang paling umum dialami. Pengidap buta warna akan memiliki pandangan yang berbeda tentang warna serta tidak dapat membedakan beberapa warna tertentu. 
+                    Buta warna parsial biasanya terjadi ketika salah satu anggota keluarga memiliki kelainan pada fotopigmen, yaitu molekul yang bertugas dalam mendeteksi warna dalam sel-sel pada retina.
+                    Buta warna parsial memiliki dua golongan, yaitu kesulitan membedakan warna pada gradasi merah-hijau, dan sulit membedakan warna biru-kuning.
+                </p>
+            );
+        </script>
+        <script>            
+            function hasilTes() {
+                var nilai = localStorage.getItem("jumlahNilai");
+                var hasil;
+                var deskripsi;
+                protanomali = (+localStorage.getItem("protanomali"));
+                deuteranomali = (+localStorage.getItem("deuteranomali"));
+                tritanopia = (+localStorage.getItem("tritanopia"));
+                var protri =  (+localStorage.getItem("protanomali")) + (+localStorage.getItem("tritanopia"));
+                var deupro =  (+localStorage.getItem("protanomali")) + (+localStorage.getItem("deuteranomali"));
+                var trideu =  (+localStorage.getItem("deuteranomali")) + (+localStorage.getItem("tritanopia"));
+                if (nilai == "20") {
+                    hasil = "Mata Normal";
+                    ReactDOM.render(deskripsi1, document.getElementById("deskripsi"));
+                }
+                else if (deuteranomali > protanomali & deuteranomali > tritanopia) {
+                    hasil = "Deuteranomali";
+                    ReactDOM.render(deskripsi2, document.getElementById("deskripsi"));
+                }
+                else if (protanomali > tritanopia & protanomali > deuteranomali) {
+                    hasil = "Protanomali";
+                    ReactDOM.render(deskripsi3, document.getElementById("deskripsi"));
+                }
+                else if (tritanopia > deuteranomali & tritanopia > protanomali) {
+                    hasil = "Tritanopia";
+                    ReactDOM.render(deskripsi4, document.getElementById("deskripsi"));
+                }
+                else {
+                    hasil = "Buta Warna Parsial";
+                    ReactDOM.render(deskripsi5, document.getElementById("deskripsi"));
+                }
+                document.getElementById("hasil").style.border = "#F6C993 solid";
+                document.getElementById("hasil").style.backgroundColor = "#F6C993";
+                document.getElementById("hasil").style.padding = "30px";
+                document.getElementById("hasil").innerHTML = hasil;
+            }
+        </script>
+        <script type="text/babel">
+            let penutup = (
+                <p>Terima kasih telah melakukan tes buta warna di Color Blind</p>
+            );
+        </script>
+        <script type="text/babel">
+            let teslagi = (
+                <a href="3form.html">
+                    <button className="teslagi">
+                        Lakukan Tes Lagi
+                    </button>
+                </a>
+            );
+        </script>
+        <script type="text/babel">
+            let home = (
+                <a href="index.html">
+                    <button className="home">
+                        Kembali Ke Menu Utama
+                    </button>
+                </a>
+            );
+        </script>
+        <script type="text/javascript">
+            document.getElementById("Submit").addEventListener("click", function show() {
+                var nama = document.getElementById("txtNama").value;
+                var JK = document.getElementById("combo").value;
+                var TL = document.getElementById("TL").value;
+                var letter = /^[a-zA-Z\s]*$/;
+                localStorage.setItem("namaForm",nama);
+                localStorage.setItem("JKForm",JK);
+                localStorage.setItem("TLForm",TL);
+                if (nama != "" && nama.match(letter)) {
+                    if (JK != "Pilih") {
+                        if (TL != "") {
+                            document.getElementById("judul2").remove();
+                            document.getElementById("form").remove();
+                            document.getElementById("Kembali").remove();
+                            window.alert(disclaimer+judulDisclaimer+isiDisclaimer);
+                            ReactDOM.render(judul, document.getElementById("judul"));
+                            ReactDOM.render(quest, document.getElementById("question"));
+                            ReactDOM.render(jml, document.getElementById("jumlah"));
+                            document.getElementById("ishihara").style.display = "block";
+                            document.title = "Color Blind | Tes Buta Warna";
+                            
+                        }
+                    }                    
+                }
+                
+            });
+        </script>
+        <script type="text/javascript">
+            document.getElementById("submit").addEventListener("click", function show() {
+                document.getElementById("judul").remove();
+                document.getElementById("question").remove();
+                document.getElementById("ishihara").remove();
+                document.getElementById("nilai").remove();
+                document.getElementById("submit").remove();
+                ReactDOM.render(judul1, document.getElementById("judul1"));
+                document.getElementById("namaUser").innerHTML = "Nama Lengkap  : " + localStorage.getItem("namaForm");
+                document.getElementById("JKUser").innerHTML = "Jenis Kelamin : " + localStorage.getItem("JKForm");
+                document.getElementById("TLUser").innerHTML = "Tanggal Lahir : " + localStorage.getItem("TLForm");
+                ReactDOM.render(penutup, document.getElementById("penutup"));
+                ReactDOM.render(teslagi, document.getElementById("teslagi"));
+                ReactDOM.render(home, document.getElementById("home"));
+                hasilTes();
+                document.title = "Color Blind | Hasil Tes";
+            });
+        </script>
+        <script type="text/babel">
+            let cpr = (
+                <p style={{fontSize:"14px"}}>
+                    Terms Privacy Policy Legal ©2021 color blind        
+                </p>   
+            );
+            ReactDOM.render(cpr, document.getElementById("copyright"));
+        </script>
+        <script>
+            window.onload(document.getElementById("ishihara").remove)
+        </script>
+
+
+        <script src="boots/js/jquery.js"></script> 
+        <script src="boots/js/popper.js"></script> 
+        <script src="boots/js/bootstrap.js"></script>
+    </body>
+</html>

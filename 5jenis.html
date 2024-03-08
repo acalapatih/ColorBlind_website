@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Blind | Jenis-Jenis Buta Warna</title>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" href="boots/css/bootstrap.css">
+        <link rel="icon" href="img\ColorBlindLogo.png">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+            @media screen and (max-width: 1024px) {
+                body,
+                main{
+                    width: 100%;
+                    max-width: 1024px;
+                    height: 100%;
+                    max-height: 100%;
+                    padding: 0;
+                }
+            }
+            body {
+                width: 100%;
+                position: absolute;
+                display: block;
+                margin:0 auto;
+                left: 0px;
+                top: 62px;
+                font-family: 'Playfair Display','serif';
+            }
+            #header {
+                display: block;
+                position: fixed;
+                width: 100%;
+                margin: 0 auto;
+                top: -20px;
+                background-color: #AD4F4F;
+                border: 1px solid #AD4F4F;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
+            img {
+                cursor: pointer;
+                height: 72px;
+                float: left;
+                width: 40%;
+                margin-top: 40px; 
+                margin-bottom: 30px;
+                margin-left: 100px;
+            }
+            #nav {
+                display: block;
+                float: left;
+                width: 50%;
+                margin-top: 60px;
+                padding-left: 370px;
+                font-size: 20px;
+                color: white;
+            }
+            ul#navList {
+                list-style-position: inside;
+            }
+            li.item {
+                cursor: pointer;
+                list-style:none; 
+                padding:5px;
+                float:left;
+                padding: 3px 5px;
+                border-radius: 10px;
+            }
+            li.item:hover {
+                background-color: #913B3B;
+            }
+            #article {
+                display: block;
+                margin-top: 20px;
+                width: 100%;
+                height: 3000px;
+            }
+            #article img {
+                float: left;
+                display: block;
+                width: 100%;
+                width: 600px;
+                height: 600px;
+                object-fit: cover;
+                margin-left: 340px;
+                cursor: unset;
+            }
+            #jenis {
+                float: left;
+                display: block;
+                margin-left: 200px;
+                margin-right: 200px;
+            }
+            #judul {
+                text-align: center;
+                font-size: 30px;
+                font-weight:500;
+            }
+            #foot {
+                display: block;
+                width: 100%;
+                height: 200px;
+                background-color: #AD4F4F;
+                color: white;
+            }
+            #colorblind {
+                width: 35%;
+                float: left;
+            }
+            #about {
+                width: 65%;
+                float: right;
+                margin-top: 20px;
+            }
+            #ab1 {
+                cursor: pointer;
+                width: 50%;
+                float: left;
+                padding-right: 250px;
+            }
+            #ab2 {
+                cursor: unset;
+                width: 50%;
+                float: right;
+            }
+            #copyright {
+                height: 40px;
+                text-align: center;
+                background-color: #AD4F4F;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <img src="img\COLOR BLIND.png" onclick="window.location.href='index.html'">
+            <div id="nav"></div>
+        </div>
+        <div id="article">
+            <img src="img/GejalaMata.png">
+            <div id="jenis">
+                <div id="judul"></div>
+                <div id="kpembuka"></div>
+                <div id="kpembuka2"></div>
+                <div id="sb1"></div>
+                <div id="isisb1"></div>
+                <div id="sb2"></div>
+                <div id="isisb2"></div>
+                <div id="ssb1"></div>
+                <div id="isissb1"></div>
+                <div id="ssb1a"></div>
+                <div id="isissb1a"></div>
+                <div id="ssb1b"></div>
+                <div id="isissb1b"></div>
+                <div id="ssb1c"></div>
+                <div id="isissb1c"></div>
+                <div id="ssb2"></div>
+                <div id="isissb2"></div>
+                <div id="ssb2a"></div>
+                <div id="isissb2a"></div>
+                <div id="ssb2b"></div>
+                <div id="isissb2b"></div>
+                <div id="ssb3"></div>
+                <div id="isissb3"></div>
+                <div id="sumber"></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="foot">
+                <div id="colorblind"></div>
+                <div id="about">
+                    <div id="ab1"></div>
+                    <div id="ab2"></div>
+                </div>
+            </div>
+            <div id="copyright"></div>
+        </div>
+
+        <script type="text/javascript">
+            (function(){
+                var ul = document.createElement("ul");
+                ul.setAttribute("id","navList");
+
+                var x, xy;
+                navBar = ["Home","About"];
+
+                document.getElementById("nav").appendChild(ul);
+                navBar.forEach(renderNavBar);
+
+                function renderNavBar(element, index, arr) {
+                    var li = document.createElement("li");
+                    li.setAttribute("class","item")
+                    
+                    ul.appendChild(li);
+
+                    x = document.createTextNode(element);
+
+                    li.innerHTML = li.innerHTML + element;
+                    li.addEventListener("click",function show() {
+                        if (li.innerHTML == "Home") {
+                            window.location.href='index.html';
+                        }
+                        else if (li.innerHTML == "About") {
+                            window.location.href='2about.html';
+                        }
+                    });
+                }
+            })();
+        </script>
+        <script type="text/babel">
+            let judul = (
+                <p>Apa Itu Buta Warna?</p>
+            );
+            ReactDOM.render(judul, document.getElementById("judul"));
+        </script>
+         <script type="text/babel">
+            let kpembuka = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Buta warna adalah suatu keadaan dimana mata seseorang tidak melihat satu warna dengan baik dibanding kebanyakan orang.
+                    Di KBBI, buta warna diartikan sebagai keadaan tidak dapat melihat atau membedakan warna dengan baik.
+                    Misalnya sulit membedakan warna hijau dan biru, merah dan kuning dan seterusnya.
+                </p>
+            );
+            ReactDOM.render(kpembuka, document.getElementById("kpembuka"));
+        </script>
+        <script type="text/babel">
+            let kpembuka2 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Contoh buta warna umum adalah kesulitan membedakan warna merah dan hijau, diikuti warna biru dan kuning yang kadang juga disebut buta warna parsial.
+                    Sampai yang paling parah, dimana seseorang tidak bisa melihat warna apapun alias buta warna total atau monokromasi.
+                </p>
+            );
+            ReactDOM.render(kpembuka2, document.getElementById("kpembuka2"));
+        </script>
+        <script type="text/babel">
+            let sb1 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Gejala Buta Warna
+                </p>
+            );
+            ReactDOM.render(sb1, document.getElementById("sb1"));
+        </script>
+        <script type="text/babel">
+            let isisb1 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Gejala utama buta warna adalah mata tidak sensitif terhadap satu warna atau tidak bisa melihat warna seperti kebanyakan orang.
+                    Istilah kerennya adalah defisiensi penglihatan, yang biasanya bersifat genetik dan diturunkan dari orang tua ke anak.
+                    Ada beberapa gejala yang membantu anda mengidentifikasi kalau anda atau seseorang menderita buta warna, seperti:
+                    <li style={{marginLeft:"17px"}}>Kesulitan membedakan warna [The difference between colors]</li>
+                    <li style={{marginLeft:"17px"}}>Ada warna tertentu yang kelihatannya sangat cerah [How bright colors are]</li>
+                    <li style={{marginLeft:"17px"}}>Melihat nuansa warna yang berbeda [Different shades of colors]</li>
+                    <p>Gejala diatas seringkali ringan, yang mungkin tidak disadari penderita. Atau, dalam keadaan tertentu, dipengaruhi oleh kebiasaan orang-orang melihat warna.</p>
+                </p>
+            );
+            ReactDOM.render(isisb1, document.getElementById("isisb1"));
+        </script>
+        <script type="text/babel">
+            let sb2 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    3 Jenis Buta Warna Paling Umum
+                </p>
+            );
+            ReactDOM.render(sb2, document.getElementById("sb2"));
+        </script>
+        <script type="text/babel">
+            let isisb2 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Setelah mengetahui definisi dan gejala buta warna, berikut disajikan 3 jenis buta warna yang bisa diderita seseorang, yakni:
+                </p>
+            );
+            ReactDOM.render(isisb2, document.getElementById("isisb2"));
+        </script>
+        <script type="text/babel">
+            let ssb1 = (
+                <p style={{fontSize:"18px",fontWeight:"500",textAlign:"left"}}>
+                    1. Buta warna merah hijau [red-green]
+                </p>
+            );
+            ReactDOM.render(ssb1, document.getElementById("ssb1"));
+        </script>
+        <script type="text/babel">
+            let isissb1 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Pertama buta warna merah hijau atau red-green yang merupakan satu jenis buta warna paling umum dimana penderita sulit untuk membedakan warna merah dan hijau.
+                    Dalam perkembangannya kemudian, buta warna jenis ini terbagi menjadi beberapa bagian, yakni:
+                </p>
+            );
+            ReactDOM.render(isissb1, document.getElementById("isissb1"));
+        </script>
+        <script type="text/babel">
+            let ssb1a = (
+                <p style={{fontSize:"18px",textAlign:"left"}}>
+                    a. Deuteranomali
+                </p>
+            );
+            ReactDOM.render(ssb1a, document.getElementById("ssb1a"));
+        </script>
+        <script type="text/babel">
+            let isissb1a = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Deuteranomali adalah jenis buta warna merah-hijau paling umum dimana penderita punya kencenderungan melihat warna hijau seperti merah.
+                    Di KBBI, deuteranomali di artikan sebagai buta warna yang ditandai dengan ketidakmampuan untuk membedakan warna hijau, merah, kuning dan coklat.
+                    Keadaan ini disebabkan oleh sel kerucut hijau tidak berfungsi dengan baik dan terlalu sensitif terhadap warna merah.
+                    Dapat juga menimbulkan kesulitan membedakan warna antara warna ungu dan biru atau merah muda dan abu-abu.
+                    Hanya saja, jenis buta warna satu ini sangat ringan dan biasanya tidak menghalangi aktivitas normal lainnya.
+                </p>
+            );
+            ReactDOM.render(isissb1a, document.getElementById("isissb1a"));
+        </script>
+        <script type="text/babel">
+            let ssb1b = (
+                <p style={{fontSize:"18px",textAlign:"left"}}>
+                    b. Protanomali
+                </p>
+            );
+            ReactDOM.render(ssb1b, document.getElementById("ssb1b"));
+        </script>
+        <script type="text/babel">
+            let isissb1b = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Protanomali adalah keadaan dimana seseorang punya kencenderungan melihat warna merah seperti warna hijau. Atau, dalam beberapa kasus, penderitanya melihat kalau warna merah tersebut tidak terlalu cerah.
+                    Sama seperti deuteranomali, jenis buta warna satu ini tidak menghalangi kegiataan sehari-hari dan cenderung ringan.
+                    Sekalipun ringan, jika berada dalam keadaan tertentu seperti mengemudi dibawah sinar matahari, berkendara saat hujan dan berkabut, akan sulit melihat rambu-rambu lalu lintas.
+                    Misalnya, sulit melihat lampu lalu lintas merah yang berkedip termasuk yang warna hijau dan rambu-rambu lainnya.
+                    Inilah yang jadi alasan mengapa saat buat SIM, ada tes pengenalan warna pada rambu-rambu lalu lintas.
+                </p>
+            );
+            ReactDOM.render(isissb1b, document.getElementById("isissb1b"));
+        </script>
+        <script type="text/babel">
+            let ssb1c = (
+                <p style={{fontSize:"18px",textAlign:"left"}}>
+                    c. Deuteranopia dan Protanopia
+                </p>
+            );
+            ReactDOM.render(ssb1c, document.getElementById("ssb1c"));
+        </script>
+        <script type="text/babel">
+            let isissb1c = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Deuteranopia adalah istilah yang digunakan untuk menggambarkan penderita buta warna deuteranomali.
+                    Jadi, deuteranopia ini termasuk jenis buta warna yang spesifik dan ditandai dengan ketidakmampuan seseorang membedakan warna merah, hijau, kuning dan cokelat.
+                    Pada akhirnya, akan membuat seseorang kesulitan membedakan warna ungu dan biru atau merah muda dan abu-abu.
+                    Sama seperti deuteranopia, dimana protanopia adalah istilah rujukan untuk penderita protanomali.
+                    Dimana, seseorang sulit melihat atau membedakan warna merah termasuk jingga, kuning dan hijau.
+                </p>
+            );
+            ReactDOM.render(isissb1c, document.getElementById("isissb1c"));
+        </script>
+        <script type="text/babel">
+            let ssb2 = (
+                <p style={{fontSize:"18px",fontWeight:"500",textAlign:"left"}}>
+                    2. Buta warna Biru kuning [blue-yellow]
+                </p>
+            );
+            ReactDOM.render(ssb2, document.getElementById("ssb2"));
+        </script>
+        <script type="text/babel">
+            let isissb2 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Berikutnya adalah jenis buta warna yang kurang umum dialami seseorang, dimana penderitanya kesulitan membedakan antara warna kuning dan merah.
+                    Dalam perkembangannya kemudian, ia dibedakan dalam dua jenis, yakni:
+                </p>
+            );
+            ReactDOM.render(isissb2, document.getElementById("isissb2"));
+        </script>
+        <script type="text/babel">
+            let ssb2a = (
+                <p style={{fontSize:"18px",textAlign:"left"}}>
+                    a. Tritanomali
+                </p>
+            );
+            ReactDOM.render(ssb2a, document.getElementById("ssb2a"));
+        </script>
+        <script type="text/babel">
+            let isissb2a = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Tritanomali adalah keadaan dimana seseorang sulit membedakan warna biru dan hijau, termasuk warna kuning dan merah.
+                </p>
+            );
+            ReactDOM.render(isissb2a, document.getElementById("isissb2a"));
+        </script>
+        <script type="text/babel">
+            let ssb2b = (
+                <p style={{fontSize:"18px",textAlign:"left"}}>
+                    b. Tritanopia
+                </p>
+            );
+            ReactDOM.render(ssb2b, document.getElementById("ssb2b"));
+        </script>
+        <script type="text/babel">
+            let isissb2b = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Tritanopia adalah keadaan dimana seseorang tidak bisa membedakan antara warna biru dan hijau, ungu dan merah.
+                    Termasuk juga warna kuning dan merah muda. Penderitanya juga punya kencenderungan melihat warna-warna diatas kurang cerah.
+                </p>
+            );
+            ReactDOM.render(isissb2b, document.getElementById("isissb2b"));
+        </script>
+        <script type="text/babel">
+            let ssb3 = (
+                <p style={{fontSize:"18px",fontWeight:"500",textAlign:"left"}}>
+                    3. Monokromasi
+                </p>
+            );
+            ReactDOM.render(ssb3, document.getElementById("ssb3"));
+        </script>
+        <script type="text/babel">
+            let isissb3 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Monokromasi atau buta warna total adalah suatu keadaan dimana seseorang tidak dapat membedakan warna sama sekali.
+                    Jenis buta satu ini sangat langka alias jarang ditemui. Oh iya, kata buta warna total ini bukan berarti penderita tidak bisa melihat semua warna.
+                    Mereka tetap melihat warna kok tapi terbatas pada beberapa warna dasar seperti hitam, putih dan abu-abu.
+                </p>
+            );
+            ReactDOM.render(isissb3, document.getElementById("isissb3"));
+        </script>
+        <script type="text/babel">
+            let sumber = (
+                <p style={{fontSize:"16px",textAlign:"left",marginTop:"30px"}}>
+                    sumber : bungkul.com
+                </p>
+            );
+            ReactDOM.render(sumber, document.getElementById("sumber"));
+        </script>
+        <script type="text/babel">
+            let cb = (
+                <p style={{fontSize:"64px",marginLeft:"50px"}}>Color Blind</p>
+            );
+            ReactDOM.render(cb, document.getElementById("colorblind"));
+        </script>
+        <script type="text/babel">
+            let ab1 = (
+                <div>
+                    <h3>About Us</h3>
+                    <p style={{fontSize:"20px"}}>
+                    Our Vision
+                    Our Team
+                    Our Contact        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab1, document.getElementById("ab1"));
+            document.getElementById("ab1").addEventListener("click", function() {
+                window.location.href='2about.html';
+            });
+        </script>
+        <script type="text/babel">
+            let ab2 = (
+                <div>
+                    <h3>Address</h3>
+                    <p style={{fontSize:"20px"}}>
+                        Jl. Ir H. Juanda No.95, Cempaka Putih, Kec. Ciputat Timur, Kota Tangerang Selatan, Banten 15412        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab2, document.getElementById("ab2"));
+        </script>
+        <script type="text/babel">
+            let cpr = (
+                <p style={{fontSize:"14px"}}>
+                    Terms Privacy Policy Legal ©2021 color blind        
+                </p>   
+            );
+            ReactDOM.render(cpr, document.getElementById("copyright"));
+        </script>
+        
+
+        <script src="boots/js/jquery.js"></script> 
+        <script src="boots/js/popper.js"></script> 
+        <script src="boots/js/bootstrap.js"></script>
+    </body>
+</html>

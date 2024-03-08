@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Blind | Tentang Kami</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" href="boots/css/bootstrap.css">
+        <link rel="icon" href="img\ColorBlindLogo.png">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+            @media screen and (max-width: 1024px) {
+                body,
+                main{
+                    width: 100%;
+                    max-width: 1024px;
+                    height: 100%;
+                    max-height: 100%;
+                    padding: 0;
+                }
+            }
+            body {
+                width: 100%;
+                position: absolute;
+                display: block;
+                margin:0 auto;
+                left: 0px;
+                top: 62px;
+                font-family: 'Playfair Display','serif';
+            }
+            #header {
+                display: block;
+                position: fixed;
+                width: 100%;
+                margin: 0 auto;
+                top: -20px;
+                background-color: #AD4F4F;
+                border: 1px solid #AD4F4F;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
+            img {
+                cursor: pointer;
+                height: 72px;
+                float: left;
+                width: 40%;
+                margin-top: 40px; 
+                margin-bottom: 30px;
+                margin-left: 100px;
+            }
+            #nav {
+                display: block;
+                float: left;
+                width: 50%;
+                margin-top: 60px;
+                padding-left: 370px;
+                font-size: 20px;
+                color: white;
+            }
+            ul#navList {
+                list-style-position: inside;
+            }
+            li.item {
+                cursor: pointer;
+                list-style:none; 
+                padding:5px;
+                float:left;
+                padding: 3px 5px;
+                border-radius: 10px;
+            }
+            li.item:hover {
+                background-color: #913B3B;
+            }
+            #article {
+                display: block;
+                margin-top: 100px;
+                width: 100%;
+                color: black;
+                height: 1200px;
+            }
+            #txtlogo {
+                margin-top: 50px;
+            }
+            #txt1 {
+                width: 40%;
+                float: left;
+                margin-left: 200px;
+                text-align: justify;
+            }
+            #logo img{
+                float: left;
+                width: 60%;
+                margin-right: 200px;
+                margin-top: 0;
+                width: 245px;
+                height: 217px;
+                object-fit: cover;
+                cursor: unset;
+            }
+            #visi {
+                margin-top: 400px;
+                margin-left: 200px;
+                margin-right: 200px;
+                height: 150px;
+                background-color: #F6C993;
+                border-radius: 20px;
+                text-align: center;
+                font-size: 24px;
+                padding: 20px 20px 0 20px;
+            }
+            #info {
+                display: block;
+                background-color: white;
+                height: 300px;
+                margin-top: 100px;
+            }
+            #team {
+                float: left;
+                width: 50%;
+                padding-left: 150px;
+            }
+            img#imgTeam {
+                display: block;
+                float: left;
+                width: 100%;
+                cursor: unset;
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border: black 3px solid;
+                border-radius: 10px;
+            }
+            #txtOurTeam {
+                display: block;
+                float: left;
+                /* width: 100%; */
+                margin-top: 150px;
+                margin-left: -150px;
+            }
+            #txtTeam {
+                padding-left: 50px;
+            }
+            #contact {
+                display: block;
+                float: right;
+                width: 50%;
+                padding-left: 150px;
+            }
+            img#imgContact {
+                display: block;
+                float: left;
+                width: 100%;
+                cursor: unset;
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border: black 3px solid;
+                border-radius: 10px;
+            }
+            #txtContactUs {
+                display: block;
+                float: left;
+                /* width: 100%; */
+                margin-top: 150px;
+                margin-left: -150px;
+            }
+            #txtContact {
+                padding-left: 50px;
+            }
+            #foot {
+                display: block;
+                width: 100%;
+                height: 200px;
+                background-color: #AD4F4F;
+                color: white;
+            }
+            #colorblind {
+                width: 35%;
+                float: left;
+            }
+            #about {
+                width: 65%;
+                float: right;
+                margin-top: 20px;
+            }
+            #ab1 {
+                cursor: pointer;
+                width: 50%;
+                float: left;
+                padding-right: 250px;
+            }
+            #ab2 {
+                cursor: unset;
+                width: 50%;
+                float: right;
+            }
+            #copyright {
+                height: 40px;
+                text-align: center;
+                background-color: #AD4F4F;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <img src="img\COLOR BLIND.png" onclick="window.location.href='index.html'">
+            <div id="nav"></div>
+        </div>
+        <div id="article">
+            <div id="judul"></div>
+            <div id="txtlogo">
+                <div id="txt1"></div>
+                <div id="logo">
+                    <img src="img/ColorBlindLogo.png">
+                </div>
+            </div>
+            <div id="visi"></div>
+            <div id="info">
+                <div id="team">
+                    <img id="imgTeam" src="img\team 1.png">
+                    <div id="txtOurTeam">
+                        <div id="txtTeam"></div>
+                        <div id="ourTeam"></div>
+                    </div>
+                </div>
+                <div id="contact">
+                    <img id="imgContact" src="img\whatsapp-logo-1.png">
+                    <div id="txtContactUs">
+                        <div id="txtContact"></div>
+                        <div id="contactUs"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="foot">
+                <div id="colorblind"></div>
+                <div id="about">
+                    <div id="ab1"></div>
+                    <div id="ab2"></div>
+                </div>
+            </div>
+            <div id="copyright"></div>
+        </div>
+        
+        <script type="text/javascript">
+            (function(){
+                var ul = document.createElement("ul");
+                ul.setAttribute("id","navList");
+
+                var x, xy;
+                navBar = ["Home","About"];
+
+                document.getElementById("nav").appendChild(ul);
+                navBar.forEach(renderNavBar);
+
+                function renderNavBar(element, index, arr) {
+                    var li = document.createElement("li");
+                    li.setAttribute("class","item")
+                    
+                    ul.appendChild(li);
+
+                    x = document.createTextNode(element);
+
+                    li.innerHTML = li.innerHTML + element;
+                    li.addEventListener("click",function show() {
+                        if (li.innerHTML == "Home") {
+                            window.location.href='index.html';
+                        }
+                        else if (li.innerHTML == "About") {
+                            window.location.href='2about.html';
+                        }
+                    });
+                }
+            })();
+        </script>
+        <script type="text/babel">
+            let about = (
+                <p style={{fontSize:"48px",textAlign:"center"}}>Tentang Kami</p>
+            );
+            ReactDOM.render(about, document.getElementById("judul"));
+        </script>
+        <script type="text/babel">
+            let txt1 = (
+                <p>Color Blind adalah salah satu website yang dapat anda kunjungi apabila ingin mengetahui 
+                    apakah anda mengalami buta warna. Di sini kami telah menyediakan tes buta warna 
+                    yang bisa anda coba kapanpun anda mau. Selain itu, anda juga dapat mengetahui fakta-fakta 
+                    terkait buta warna, jenis-jenis buta warna, serta metode-metode yang digunakan untuk melakukan tes buta warna.
+                </p>
+            );
+            ReactDOM.render(txt1, document.getElementById("txt1"));
+        </script>
+        <script type="text/babel">
+            let visi = (
+                <p>
+                    Mata adalah jendela dunia. Color blind menyediakan apa yang ingin anda ketahui terkait buta warna. 
+                    Kami harap anda mendapat informasi yang berguna  pada color blind. 
+                </p>
+            );
+            ReactDOM.render(visi, document.getElementById("visi"));
+        </script>
+        <script type="text/babel">
+            let txtTeam = (
+                <div>
+                    <h5>Our Team</h5>
+                </div>
+            );
+            let txtContact = (
+                <div>
+                    <h5>Contact Us</h5>
+                </div>
+            );
+            ReactDOM.render(txtTeam, document.getElementById("txtTeam"));
+            ReactDOM.render(txtContact, document.getElementById("txtContact"));
+        </script>
+        <script type="text/babel">
+            let ourTeam = (
+                <div>
+                    <h5>Anindia Tri Cahyani</h5>
+                    <h5>Amir Acalapati Henry</h5>
+                    <h5>Allan Pradipta Andrianto</h5>
+                    <h5>Luthfa Refihat Aisah</h5>
+                </div>
+            );
+            ReactDOM.render(ourTeam, document.getElementById("ourTeam"));
+        </script>
+        <script type="text/babel">
+            let contactUs = (
+                <div>
+                    <h5>083862442500 (Anindia)</h5>
+                    <h5>082123944448 (Amir)</h5>
+                    <h5>o85722328570 (Allan)</h5>
+                    <h5>081584871617 (Luthfa)</h5>
+                </div>
+            );
+            ReactDOM.render(contactUs, document.getElementById("contactUs"));
+        </script>
+        <script type="text/babel">
+            let cb = (
+                <p style={{fontSize:"64px",marginLeft:"50px"}}>Color Blind</p>
+            );
+            ReactDOM.render(cb, document.getElementById("colorblind"));
+        </script>
+        <script type="text/babel">
+            let ab1 = (
+                <div>
+                    <h3>About Us</h3>
+                    <p style={{fontSize:"20px"}}>
+                    Our Vision
+                    Our Team
+                    Our Contact        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab1, document.getElementById("ab1"));
+            document.getElementById("ab1").addEventListener("click", function() {
+                window.location.href='2about.html';
+            });
+        </script>
+        <script type="text/babel">
+            let ab2 = (
+                <div>
+                    <h3>Address</h3>
+                    <p style={{fontSize:"20px"}}>
+                        Jl. Ir H. Juanda No.95, Cempaka Putih, Kec. Ciputat Timur, Kota Tangerang Selatan, Banten 15412        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab2, document.getElementById("ab2"));
+        </script>
+        <script type="text/babel">
+            let cpr = (
+                <p style={{fontSize:"14px"}}>
+                    Terms Privacy Policy Legal ©2021 color blind        
+                </p>   
+            );
+            ReactDOM.render(cpr, document.getElementById("copyright"));
+        </script>   
+
+        
+
+        <script src="boots/js/jquery.js"></script> 
+        <script src="boots/js/popper.js"></script> 
+        <script src="boots/js/bootstrap.js"></script>
+    </body>
+</html>

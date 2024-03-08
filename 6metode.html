@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Blind | Metode Tes Buta Warna</title>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" href="boots/css/bootstrap.css">
+        <link rel="icon" href="img\ColorBlindLogo.png">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+            @media screen and (max-width: 1024px) {
+                body,
+                main{
+                    width: 100%;
+                    max-width: 1024px;
+                    height: 100%;
+                    max-height: 100%;
+                    padding: 0;
+                }
+            }
+            body {
+                width: 100%;
+                position: absolute;
+                display: block;
+                margin:0 auto;
+                left: 0px;
+                top: 62px;
+                font-family: 'Playfair Display','serif';
+            }
+            #header {
+                display: block;
+                position: fixed;
+                width: 100%;
+                margin: 0 auto;
+                top: -20px;
+                background-color: #AD4F4F;
+                border: 1px solid #AD4F4F;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            }
+            img {
+                cursor: pointer;
+                height: 72px;
+                float: left;
+                width: 40%;
+                margin-top: 40px; 
+                margin-bottom: 30px;
+                margin-left: 100px;
+            }
+            #nav {
+                display: block;
+                float: left;
+                width: 50%;
+                margin-top: 60px;
+                padding-left: 370px;
+                font-size: 20px;
+                color: white;
+            }
+            ul#navList {
+                list-style-position: inside;
+            }
+            li.item {
+                cursor: pointer;
+                list-style:none; 
+                padding:5px;
+                float:left;
+                padding: 3px 5px;
+                border-radius: 10px;
+            }
+            li.item:hover {
+                background-color: #913B3B;
+            }
+            #article {
+                display: block;
+                margin-top: 20px;
+                width: 100%;
+                height: 2000px;
+            }
+            #article img {
+                float: left;
+                display: block;
+                width: 100%;
+                width: 951px;
+                height: 468px;
+                object-fit: cover;
+                margin-left: 150px;
+                margin-right: 150px;
+                cursor: unset;
+            }
+            #metode {
+                float: left;
+                display: block;
+                margin-left: 150px;
+                margin-right: 150px;
+            }
+            #judul {
+                text-align: center;
+                font-size: 30px;
+                font-weight:500;
+            }
+            #foot {
+                display: block;
+                width: 100%;
+                height: 200px;
+                background-color: #AD4F4F;
+                color: white;
+            }
+            #colorblind {
+                width: 35%;
+                float: left;
+            }
+            #about {
+                width: 65%;
+                float: right;
+                margin-top: 20px;
+            }
+            #ab1 {
+                cursor: pointer;
+                width: 50%;
+                float: left;
+                padding-right: 250px;
+            }
+            #ab2 {
+                cursor: unset;
+                width: 50%;
+                float: right;
+            }
+            #copyright {
+                height: 40px;
+                text-align: center;
+                background-color: #AD4F4F;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <img src="img\COLOR BLIND.png" onclick="window.location.href='index.html'">
+            <div id="nav"></div>
+        </div>
+        <div id="article">
+            <img src="img/MetodeTes.png">
+            <div id="metode">
+                <div id="judul"></div>
+                <div id="kpembuka"></div>
+                <div id="sb1"></div>
+                <div id="isisb1"></div>
+                <div id="sb2"></div>
+                <div id="isisb2"></div>
+                <div id="sb3"></div>
+                <div id="isisb3"></div>
+                <div id="sb4"></div>
+                <div id="isisb4"></div>
+                <div id="sb5"></div>
+                <div id="isisb5"></div>
+                <div id="kpenutup"></div>
+                <div id="sumber"></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="foot">
+                <div id="colorblind"></div>
+                <div id="about">
+                    <div id="ab1"></div>
+                    <div id="ab2"></div>
+                </div>
+            </div>
+            <div id="copyright"></div>
+        </div>
+
+        <script type="text/javascript">
+            (function(){
+                var ul = document.createElement("ul");
+                ul.setAttribute("id","navList");
+
+                var x, xy;
+                navBar = ["Home","About"];
+
+                document.getElementById("nav").appendChild(ul);
+                navBar.forEach(renderNavBar);
+
+                function renderNavBar(element, index, arr) {
+                    var li = document.createElement("li");
+                    li.setAttribute("class","item")
+                    
+                    ul.appendChild(li);
+
+                    x = document.createTextNode(element);
+
+                    li.innerHTML = li.innerHTML + element;
+                    li.addEventListener("click",function show() {
+                        if (li.innerHTML == "Home") {
+                            window.location.href='index.html';
+                        }
+                        else if (li.innerHTML == "About") {
+                            window.location.href='2about.html';
+                        }
+                    });
+                }
+            })();
+        </script>
+        <script type="text/babel">
+            let judul = (
+                <p>Memahami Beragam Jenis Tes Buta Warna</p>
+            );
+            ReactDOM.render(judul, document.getElementById("judul"));
+        </script>
+        <script type="text/babel">
+            let kpembuka = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Selain untuk mengatasi masalah pada penglihatan, tes buta warna juga penting digunakan untuk menyaring pelamar di bidang pekerjaan yang mementingkan kemampuan persepsi warna, seperti profesi penegak hukum, militer, teknik, atau elektronik, hingga kedokteran.
+
+                    <p>Beberapa tes buta warna yang bisa dilakukan untuk mendiagnosis kelainan penglihatan ini antara lain.</p>
+                </p>
+            );
+            ReactDOM.render(kpembuka, document.getElementById("kpembuka"));
+        </script>
+        <script type="text/babel">
+            let sb1 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Tes Ishihara
+                </p>
+            );
+            ReactDOM.render(sb1, document.getElementById("sb1"));
+        </script>
+        <script type="text/babel">
+            let isisb1 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Ini adalah tes yang paling umum digunakan untuk memeriksa buta warna. 
+                    Tes buta warna Ishihara menggunakan lingkaran yang terdiri dari banyak titik dengan warna dan ukuran berbeda. 
+                    Beberapa titik akan membentuk angka tertentu.
+                </p>
+            );
+            ReactDOM.render(isisb1, document.getElementById("isisb1"));
+        </script>
+        <script type="text/babel">
+            let sb2 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Tes Warna Cambridge
+                </p>
+            );
+            ReactDOM.render(sb2, document.getElementById("sb2"));
+        </script>
+        <script type="text/babel">
+            let isisb2 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Tes buta warna ini sama seperti tes Ishihara. Bedanya, pasien menggunakan layar komputer. 
+                    Mereka diminta untuk mengidentifikasi huruf "C" yang warnanya berbeda dengan warna di sekitarnya.
+                </p>
+            );
+            ReactDOM.render(isisb2, document.getElementById("isisb2"));
+        </script>
+        <script type="text/babel">
+            let sb3 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Tes Penyusunan
+                </p>
+            );
+            ReactDOM.render(sb3, document.getElementById("sb3"));
+        </script>
+        <script type="text/babel">
+            let isisb3 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Pada tes penyusunan ini, pasien diminta untuk menyusun objek berdasarkan gradasi warna yang sedikit 
+                    Contohnya, pasien diminta untuk menyusun balok dari gradasi warna biru tua-biru-biru muda. 
+                </p>
+            );
+            ReactDOM.render(isisb3, document.getElementById("isisb3"));
+        </script>
+        <script type="text/babel">
+            let sb4 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Anomaloscope
+                </p>
+            );
+            ReactDOM.render(sb4, document.getElementById("sb4"));
+        </script>
+        <script type="text/babel">
+            let isisb4 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Untuk melakukan tes buta warna ini dibutuhkan alat mirip mikroskop. 
+                    Melalui lensa alat tersebut, pasien diminta untuk melihat lingkaran yang dibagi menjadi dua warna, setengah kuning terang, setengahnya lagi merah dan hijau. 
+                    Pasien diminta menekan tombol pada alat ini sampai seluruh warna dalam lingkaran ini berubah menjadi sama. 
+                    Sama seperti tes Ishihara, anomaloscope hanya bisa mendiagnosa buta warna merah-hijau.
+                </p>
+            );
+            ReactDOM.render(isisb4, document.getElementById("isisb4"));
+        </script>
+        <script type="text/babel">
+            let sb5 = (
+                <p style={{fontSize:"20px",textAlign:"left",fontWeight:"500",marginTop:"50px"}}>
+                    Tes Farnsworth-Munsell
+                </p>
+            );
+            ReactDOM.render(sb5, document.getElementById("sb5"));
+        </script>
+        <script type="text/babel">
+            let isisb5 = (
+                <p style={{fontSize:"18px",textAlign:"justify"}}>
+                    Tes Farnsworth-Munsell menggunakan banyak lingkaran dengan berbagai gradasi dari warna yang sama, sama seperti tes penyusunan. 
+                    Tes ini dilakukan untuk memeriksa apakah pasien dapat membedakan perubahan warna yang sangat tipis.
+                </p>
+            );
+            ReactDOM.render(isisb5, document.getElementById("isisb5"));
+        </script>
+        <script type="text/babel">
+            let kpenutup = (
+                <p style={{fontSize:"18px",textAlign:"justify",marginTop:"50px"}}>
+                    Jika Anda merasa memiliki masalah dalam melihat atau mengenali warna, disarankan segera konsultasi ke dokter spesialis mata untuk melakukan tes buta warna. 
+                    Meski terdapat keterbatasan, namun jangan khawatir, umumnya penderita buta warna masih bisa melakukan berbagai aktivitas dengan normal. 
+                    Sebagian kegiatan yang melibatkan persepsi warna juga dapat dijalani dengan penyesuaian khusus.
+                </p>
+            );
+            ReactDOM.render(kpenutup, document.getElementById("kpenutup"));
+        </script>
+        <script type="text/babel">
+            let sumber = (
+                <p style={{fontSize:"16px",textAlign:"left",marginTop:"30px"}}>
+                    sumber : www.alodokter.com
+                </p>
+            );
+            ReactDOM.render(sumber, document.getElementById("sumber"));
+        </script>
+        <script type="text/babel">
+            let cb = (
+                <p style={{fontSize:"64px",marginLeft:"50px"}}>Color Blind</p>
+            );
+            ReactDOM.render(cb, document.getElementById("colorblind"));
+        </script>
+        <script type="text/babel">
+            let ab1 = (
+                <div>
+                    <h3>About Us</h3>
+                    <p style={{fontSize:"20px"}}>
+                    Our Vision
+                    Our Team
+                    Our Contact        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab1, document.getElementById("ab1"));
+            document.getElementById("ab1").addEventListener("click", function() {
+                window.location.href='2about.html';
+            });
+        </script>
+        <script type="text/babel">
+            let ab2 = (
+                <div>
+                    <h3>Address</h3>
+                    <p style={{fontSize:"20px"}}>
+                        Jl. Ir H. Juanda No.95, Cempaka Putih, Kec. Ciputat Timur, Kota Tangerang Selatan, Banten 15412        
+                    </p>
+                </div>
+            );
+            ReactDOM.render(ab2, document.getElementById("ab2"));
+        </script>
+        <script type="text/babel">
+            let cpr = (
+                <p style={{fontSize:"14px"}}>
+                    Terms Privacy Policy Legal ©2021 color blind        
+                </p>   
+            );
+            ReactDOM.render(cpr, document.getElementById("copyright"));
+        </script>
+        
+
+        <script src="boots/js/jquery.js"></script> 
+        <script src="boots/js/popper.js"></script> 
+        <script src="boots/js/bootstrap.js"></script>
+    </body>
+</html>
